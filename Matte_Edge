@@ -1,0 +1,127 @@
+Group {
+ name Matte_Edge
+ tile_color 0xcc9800ff
+ selected true
+ xpos 180
+ ypos 5342
+ addUserKnob {20 User}
+ addUserKnob {26 in l "<b><font color=orange>Inside"}
+ addUserKnob {41 in_1 l Size T proxy.in}
+ addUserKnob {41 size_1 l Blur T Blur_IN.size}
+ addUserKnob {41 mix l Mix T FilterErode_IN.mix}
+ addUserKnob {26 out l "<b><font color=orange>Outside"}
+ addUserKnob {41 out_1 l Size T proxy.out}
+ addUserKnob {41 size_3 l Blur T Blur_OUT.size}
+ addUserKnob {41 mix_1 l Mix T FilterErode_OUT.mix}
+ addUserKnob {26 ""}
+ addUserKnob {7 mix_all l Mix}
+ mix_all 1
+ addUserKnob {26 ""}
+ addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+ addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">Matte Edge© by Attila Gasparetz</font>"}
+}
+ NoOp {
+  inputs 0
+  name proxy
+  tile_color 0x666666ff
+  xpos -480
+  ypos 590
+  addUserKnob {20 User}
+  addUserKnob {7 in l Size R 0 100}
+  in 1
+  addUserKnob {7 out l Size R 0 100}
+  out 1
+ }
+ Input {
+  inputs 0
+  name Input
+  tile_color 0x666666ff
+  xpos -480
+  ypos 398
+ }
+ Dot {
+  name Dot14
+  xpos -446
+  ypos 474
+ }
+set Neaca8460 [stack 0]
+ Dot {
+  name Dot15
+  xpos -556
+  ypos 474
+ }
+ FilterErode {
+  size {{parent.proxy.in}}
+  name FilterErode_IN
+  tile_color 0x666666ff
+  label IN
+  note_font "Bitstream Vera Sans Bold Bold Bold Bold Bold"
+  note_font_size 12
+  xpos -590
+  ypos 528
+ }
+ Blur {
+  channels alpha
+  size 1
+  name Blur_IN
+  tile_color 0x666666ff
+  xpos -590
+  ypos 632
+ }
+ Dot {
+  name Dot16
+  xpos -556
+  ypos 714
+ }
+push $Neaca8460
+ Dot {
+  name Dot8
+  xpos -336
+  ypos 474
+ }
+ FilterErode {
+  size {{-proxy.out}}
+  name FilterErode_OUT
+  tile_color 0x666666ff
+  label OUT
+  note_font "Bitstream Vera Sans Bold Bold Bold Bold Bold"
+  note_font_size 12
+  xpos -370
+  ypos 528
+ }
+ Blur {
+  channels alpha
+  size 1
+  name Blur_OUT
+  tile_color 0x666666ff
+  xpos -370
+  ypos 632
+ }
+ Dot {
+  name Dot18
+  xpos -336
+  ypos 714
+ }
+ ChannelMerge {
+  inputs 2
+  operation xor
+  name ChannelMerge
+  tile_color 0x666666ff
+  xpos -480
+  ypos 698
+ }
+ Multiply {
+  channels alpha
+  value {{parent.mix_all}}
+  name Multiply
+  tile_color 0x666666ff
+  xpos -480
+  ypos 800
+ }
+ Output {
+  name Output
+  tile_color 0x666666ff
+  xpos -480
+  ypos 878
+ }
+end_group
