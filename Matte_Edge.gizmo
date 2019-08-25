@@ -1,5 +1,5 @@
 Group {
- name Matte_Edge
+ name GM_Matte_Edge
  tile_color 0xcc9800ff
  selected true
  xpos 180
@@ -18,7 +18,7 @@ Group {
  mix_all 1
  addUserKnob {26 ""}
  addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
- addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">Matte Edge© by Attila Gasparetz</font>"}
+ addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Matte Edge© by Attila Gasparetz</font>"}
 }
  NoOp {
   inputs 0
