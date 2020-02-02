@@ -17,6 +17,8 @@ Group {
  addUserKnob {7 mix_all l Mix}
  mix_all 1
  addUserKnob {26 ""}
+ addUserKnob {22 tut l Tutorial T "import os\nimport sys\n\ntry:\n    import subprocess\n    def _run(cmd, shell, wait):\n        opener = subprocess.Popen(cmd, shell=shell)\n        if wait:\n            opener.wait()\n        return opener.pid\nexcept ImportError:\n    import popen2\n    def _run(cmd, shell, wait):\n        opener = popen2.Popen3(cmd)\n        if wait:\n            opener.wait()\n        return opener.pid\n\ndef _open(url, wait=0):\n    if sys.platform == \"darwin\":\n        cmd = \[\"open\", url]\n    elif hasattr(os, \"startfile\"):\n        return os.startfile(url)\n    elif os.environ.has_key(\"KDE_FULL_SESSION\") or os.environ.has_key(\"KDE_MULTIHEAD\") or \\\n        os.environ.has_key(\"GNOME_DESKTOP_SESSION_ID\") or os.environ.has_key(\"GNOME_KEYRING_SOCKET\"):\n        cmd = \[\"xdg-open\", url]\n    else:\n        raise OSError, \"Desktop not supported.\"\n\n    return _run(cmd, 0, wait)\n\n_open('https://www.gatimedia.co.uk/matte-edge')\n" +STARTLINE}
+ addUserKnob {26 ""}
  addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
  addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_Matte Edge© by Attila Gasparetz</font>"}
 }
@@ -32,13 +34,13 @@ Group {
   xpos -446
   ypos 378
  }
-set N92365880 [stack 0]
+set N303a700 [stack 0]
  Dot {
   name Dot15
   xpos -556
   ypos 378
  }
-set N92365500 [stack 0]
+set N303a380 [stack 0]
  Group {
   name key_chew
   help "======== KeyChew beta ========\n=============================\n\nThis is a port of the KeyChew macro for Shake to Nuke.\n\nThere might be tiny differences on the results given in both apps. Some of them are caused by the internal algorithms of each app, and others by the way I faked the JSplineV\nexpression of Shake in Nuke. If you know a better way to solve this, let\nme know!!\n\n=============================\n             2009 Cuco Bures\n============================="
@@ -57,20 +59,20 @@ set N92365500 [stack 0]
    xpos -40
    ypos -10
   }
-set N92365180 [stack 0]
+set N303a000 [stack 0]
   Dot {
    name Dot1
    xpos 324
    ypos -6
   }
-set N92364e00 [stack 0]
-push $N92364e00
+set N3063c00 [stack 0]
+push $N3063c00
   Invert {
    name Invert1
    xpos 180
    ypos 32
   }
-push $N92364e00
+push $N3063c00
   Switch {
    inputs 2
    which {{"\[value parent.chew]>=0?0:1"}}
@@ -103,7 +105,7 @@ push $N92364e00
    addUserKnob {7 JSplineVFake}
    JSplineVFake {{curve l 0.9958 k x5 0.95 0.8 x20 0.5 x40 0.3 x80 0.2 l x200 0.1}}
   }
-set N8b309c00 [stack 0]
+set N3062a80 [stack 0]
   Merge2 {
    inputs 2
    operation minus
@@ -111,7 +113,7 @@ set N8b309c00 [stack 0]
    xpos 290
    ypos 230
   }
-push $N8b309c00
+push $N3062a80
   Switch {
    inputs 2
    which {{"\[value parent.chew]>=0?0:1"}}
@@ -130,7 +132,7 @@ push $N8b309c00
    xpos 180
    ypos 440
   }
-push $N92365180
+push $N303a000
   ShuffleCopy {
    inputs 2
    name ShuffleCopy1
@@ -149,7 +151,7 @@ push $N92365180
    ypos 566
   }
  end_group
-push $N92365500
+push $N303a380
  Dissolve {
   inputs 2
   which 1
@@ -171,13 +173,13 @@ push $N92365500
   xpos -556
   ypos 762
  }
-push $N92365880
+push $N303a700
  Dot {
   name Dot8
   xpos -336
   ypos 378
  }
-set N8bc2d500 [stack 0]
+set N309c380 [stack 0]
  Group {
   name key_chew1
   help "======== KeyChew beta ========\n=============================\n\nThis is a port of the KeyChew macro for Shake to Nuke.\n\nThere might be tiny differences on the results given in both apps. Some of them are caused by the internal algorithms of each app, and others by the way I faked the JSplineV\nexpression of Shake in Nuke. If you know a better way to solve this, let\nme know!!\n\n=============================\n             2009 Cuco Bures\n============================="
@@ -195,20 +197,20 @@ set N8bc2d500 [stack 0]
    name Input
    xpos 0
   }
-set N8bc2d180 [stack 0]
+set N309c000 [stack 0]
   Dot {
    name Dot1
    xpos 366
    ypos 5
   }
-set N8bc2ce00 [stack 0]
-push $N8bc2ce00
+set N30c9c00 [stack 0]
+push $N30c9c00
   Invert {
    name Invert1
    xpos 177
    ypos 34
   }
-push $N8bc2ce00
+push $N30c9c00
   Switch {
    inputs 2
    which {{"\[value parent.chew]>=0?0:1"}}
@@ -240,7 +242,7 @@ push $N8bc2ce00
    addUserKnob {7 JSplineVFake}
    JSplineVFake {{curve i l 0.9958 k x5 0.95 0.8 x20 0.5 x40 0.3 x80 0.2 l x200 0.1}}
   }
-set N8a22bc00 [stack 0]
+set N30c8a80 [stack 0]
   Merge2 {
    inputs 2
    operation minus
@@ -248,7 +250,7 @@ set N8a22bc00 [stack 0]
    xpos 332
    ypos 218
   }
-push $N8a22bc00
+push $N30c8a80
   Switch {
    inputs 2
    which {{"\[value parent.chew]>=0?0:1"}}
@@ -267,7 +269,7 @@ push $N8a22bc00
    xpos 177
    ypos 446
   }
-push $N8bc2d180
+push $N309c000
   ShuffleCopy {
    inputs 2
    name ShuffleCopy1
@@ -286,7 +288,7 @@ push $N8bc2d180
    ypos 556
   }
  end_group
-push $N8bc2d500
+push $N309c380
  Dissolve {
   inputs 2
   which 1
@@ -295,7 +297,7 @@ push $N8bc2d500
   xpos -370
   ypos 584
  }
-set N8a22a000 [stack 0]
+set N3102e00 [stack 0]
  Dot {
   name Dot18
   xpos -336
@@ -307,21 +309,21 @@ set N8a22a000 [stack 0]
   name ChannelMerge
   tile_color 0x666666ff
   xpos -480
-  ypos 746
+  ypos 745
  }
-push $N8bc2d500
+push $N309c380
  Dot {
   name Dot3
   xpos -116
   ypos 378
  }
-set Ndcfd3500 [stack 0]
+set N3102380 [stack 0]
  Dot {
   name Dot4
   xpos -116
   ypos 930
  }
-set Ndcfd3180 [stack 0]
+set N3102000 [stack 0]
  Invert {
   name Invert1
   tile_color 0x555555ff
@@ -335,27 +337,27 @@ set Ndcfd3180 [stack 0]
   tile_color 0x555555ff
   label "\[value operation]"
   xpos -480
-  ypos 908
+  ypos 907
  }
-push $Ndcfd3500
+push $N3102380
  Dot {
   name Dot11
   xpos 214
   ypos 378
  }
-set Ndcfd2700 [stack 0]
+set N3133500 [stack 0]
  Dot {
   name Dot5
   xpos 214
   ypos 426
  }
-set Ndcfd2380 [stack 0]
+set N3133180 [stack 0]
  Dot {
   name Dot6
   xpos 104
   ypos 426
  }
-set Ndcfd2000 [stack 0]
+set N3132e00 [stack 0]
  Group {
   name key_chew2
   help "======== KeyChew beta ========\n=============================\n\nThis is a port of the KeyChew macro for Shake to Nuke.\n\nThere might be tiny differences on the results given in both apps. Some of them are caused by the internal algorithms of each app, and others by the way I faked the JSplineV\nexpression of Shake in Nuke. If you know a better way to solve this, let\nme know!!\n\n=============================\n             2009 Cuco Bures\n============================="
@@ -374,20 +376,20 @@ set Ndcfd2000 [stack 0]
    xpos -40
    ypos -10
   }
-set Ndcf4dc00 [stack 0]
+set N3132a80 [stack 0]
   Dot {
    name Dot1
    xpos 324
    ypos -6
   }
-set Ndcf4d880 [stack 0]
-push $Ndcf4d880
+set N3132700 [stack 0]
+push $N3132700
   Invert {
    name Invert1
    xpos 180
    ypos 32
   }
-push $Ndcf4d880
+push $N3132700
   Switch {
    inputs 2
    which {{"\[value parent.chew]>=0?0:1"}}
@@ -420,7 +422,7 @@ push $Ndcf4d880
    addUserKnob {7 JSplineVFake}
    JSplineVFake {{curve l 0.9958 k x5 0.95 0.8 x20 0.5 x40 0.3 x80 0.2 l x200 0.1}}
   }
-set Ndcf4c700 [stack 0]
+set N315b500 [stack 0]
   Merge2 {
    inputs 2
    operation minus
@@ -428,7 +430,7 @@ set Ndcf4c700 [stack 0]
    xpos 290
    ypos 230
   }
-push $Ndcf4c700
+push $N315b500
   Switch {
    inputs 2
    which {{"\[value parent.chew]>=0?0:1"}}
@@ -447,7 +449,7 @@ push $Ndcf4c700
    xpos 180
    ypos 440
   }
-push $Ndcf4dc00
+push $N3132a80
   ShuffleCopy {
    inputs 2
    name ShuffleCopy1
@@ -466,10 +468,10 @@ push $Ndcf4dc00
    ypos 566
   }
  end_group
-push $Ndcfd2000
+push $N3132e00
  Dissolve {
   inputs 2
-  which {{parent.Dissolve2.which}}
+  which {{Dissolve2.which}}
   name Dissolve4
   tile_color 0x555555ff
   xpos 70
@@ -480,13 +482,13 @@ push $Ndcfd2000
   xpos 104
   ypos 810
  }
-push $Ndcfd2380
+push $N3133180
  Dot {
   name Dot9
   xpos 324
   ypos 426
  }
-set N8c36e380 [stack 0]
+set N3197180 [stack 0]
  Group {
   name key_chew3
   help "======== KeyChew beta ========\n=============================\n\nThis is a port of the KeyChew macro for Shake to Nuke.\n\nThere might be tiny differences on the results given in both apps. Some of them are caused by the internal algorithms of each app, and others by the way I faked the JSplineV\nexpression of Shake in Nuke. If you know a better way to solve this, let\nme know!!\n\n=============================\n             2009 Cuco Bures\n============================="
@@ -504,20 +506,20 @@ set N8c36e380 [stack 0]
    name Input
    xpos 0
   }
-set N8c36e000 [stack 0]
+set N3196e00 [stack 0]
   Dot {
    name Dot1
    xpos 366
    ypos 5
   }
-set N8c32bc00 [stack 0]
-push $N8c32bc00
+set N3196a80 [stack 0]
+push $N3196a80
   Invert {
    name Invert1
    xpos 177
    ypos 34
   }
-push $N8c32bc00
+push $N3196a80
   Switch {
    inputs 2
    which {{"\[value parent.chew]>=0?0:1"}}
@@ -549,7 +551,7 @@ push $N8c32bc00
    addUserKnob {7 JSplineVFake}
    JSplineVFake {{curve i l 0.9958 k x5 0.95 0.8 x20 0.5 x40 0.3 x80 0.2 l x200 0.1}}
   }
-set N8c32aa80 [stack 0]
+set N31c3880 [stack 0]
   Merge2 {
    inputs 2
    operation minus
@@ -557,7 +559,7 @@ set N8c32aa80 [stack 0]
    xpos 332
    ypos 218
   }
-push $N8c32aa80
+push $N31c3880
   Switch {
    inputs 2
    which {{"\[value parent.chew]>=0?0:1"}}
@@ -576,7 +578,7 @@ push $N8c32aa80
    xpos 177
    ypos 446
   }
-push $N8c36e000
+push $N3196e00
   ShuffleCopy {
    inputs 2
    name ShuffleCopy1
@@ -595,10 +597,10 @@ push $N8c36e000
    ypos 556
   }
  end_group
-push $N8c36e380
+push $N3197180
  Dissolve {
   inputs 2
-  which {{parent.Dissolve1.which}}
+  which {{Dissolve1.which}}
   name Dissolve5
   tile_color 0x555555ff
   xpos 290
@@ -623,9 +625,9 @@ push $N8c36e380
   name ChannelMerge1
   tile_color 0x666666ff
   xpos 180
-  ypos 794
+  ypos 793
  }
-push $Ndcfd3180
+push $N3102000
  ChannelMerge {
   inputs 2
   operation multiply
@@ -633,7 +635,7 @@ push $Ndcfd3180
   tile_color 0x555555ff
   label "\[value operation]"
   xpos 180
-  ypos 908
+  ypos 907
  }
  ChannelMerge {
   inputs 2
@@ -642,9 +644,9 @@ push $Ndcfd3180
   tile_color 0x555555ff
   label "\[value operation]"
   xpos -150
-  ypos 1004
+  ypos 1003
  }
-push $N92365500
+push $N303a380
  Dot {
   name Dot21
   xpos -996
@@ -655,18 +657,17 @@ push $N92365500
   xpos -996
   ypos 618
  }
-set Ne2aa7500 [stack 0]
+set N3204380 [stack 0]
  Dot {
   name Dot13
   xpos -1106
   ypos 618
  }
-set Ne2aa7180 [stack 0]
+set N3204000 [stack 0]
  Group {
   name key_chew4
   help "======== KeyChew beta ========\n=============================\n\nThis is a port of the KeyChew macro for Shake to Nuke.\n\nThere might be tiny differences on the results given in both apps. Some of them are caused by the internal algorithms of each app, and others by the way I faked the JSplineV\nexpression of Shake in Nuke. If you know a better way to solve this, let\nme know!!\n\n=============================\n             2009 Cuco Bures\n============================="
   tile_color 0x555555ff
-  selected true
   xpos -1250
   ypos 758
   addUserKnob {20 Controls}
@@ -681,20 +682,20 @@ set Ne2aa7180 [stack 0]
    xpos -40
    ypos -10
   }
-set Ne2aa6e00 [stack 0]
+set N3231c00 [stack 0]
   Dot {
    name Dot1
    xpos 324
    ypos -6
   }
-set Ne2aa6a80 [stack 0]
-push $Ne2aa6a80
+set N3231880 [stack 0]
+push $N3231880
   Invert {
    name Invert1
    xpos 180
    ypos 32
   }
-push $Ne2aa6a80
+push $N3231880
   Switch {
    inputs 2
    which {{"\[value parent.chew]>=0?0:1"}}
@@ -727,7 +728,7 @@ push $Ne2aa6a80
    addUserKnob {7 JSplineVFake}
    JSplineVFake {{curve l 0.9958 k x5 0.95 0.8 x20 0.5 x40 0.3 x80 0.2 l x200 0.1}}
   }
-set Ne29ab880 [stack 0]
+set N3230700 [stack 0]
   Merge2 {
    inputs 2
    operation minus
@@ -735,7 +736,7 @@ set Ne29ab880 [stack 0]
    xpos 290
    ypos 230
   }
-push $Ne29ab880
+push $N3230700
   Switch {
    inputs 2
    which {{"\[value parent.chew]>=0?0:1"}}
@@ -754,7 +755,7 @@ push $Ne29ab880
    xpos 180
    ypos 440
   }
-push $Ne2aa6e00
+push $N3231c00
   ShuffleCopy {
    inputs 2
    name ShuffleCopy1
@@ -773,10 +774,10 @@ push $Ne2aa6e00
    ypos 566
   }
  end_group
-push $Ne2aa7180
+push $N3204000
  Dissolve {
   inputs 2
-  which 1
+  which {{Dissolve2.which}}
   name Dissolve6
   tile_color 0x555555ff
   xpos -1140
@@ -788,20 +789,20 @@ push $Ne2aa7180
   name Blur_IN1
   tile_color 0x666666ff
   xpos -1140
-  ypos 896
+  ypos 872
  }
  Dot {
   name Dot17
   xpos -1106
   ypos 1002
  }
-push $Ne2aa7500
+push $N3204380
  Dot {
   name Dot19
   xpos -886
   ypos 618
  }
-set Nda61f180 [stack 0]
+set N326a000 [stack 0]
  Group {
   name key_chew5
   help "======== KeyChew beta ========\n=============================\n\nThis is a port of the KeyChew macro for Shake to Nuke.\n\nThere might be tiny differences on the results given in both apps. Some of them are caused by the internal algorithms of each app, and others by the way I faked the JSplineV\nexpression of Shake in Nuke. If you know a better way to solve this, let\nme know!!\n\n=============================\n             2009 Cuco Bures\n============================="
@@ -819,20 +820,20 @@ set Nda61f180 [stack 0]
    name Input
    xpos 0
   }
-set Nda61ee00 [stack 0]
+set N329dc00 [stack 0]
   Dot {
    name Dot1
    xpos 366
    ypos 5
   }
-set Nda61ea80 [stack 0]
-push $Nda61ea80
+set N329d880 [stack 0]
+push $N329d880
   Invert {
    name Invert1
    xpos 177
    ypos 34
   }
-push $Nda61ea80
+push $N329d880
   Switch {
    inputs 2
    which {{"\[value parent.chew]>=0?0:1"}}
@@ -864,7 +865,7 @@ push $Nda61ea80
    addUserKnob {7 JSplineVFake}
    JSplineVFake {{curve i l 0.9958 k x5 0.95 0.8 x20 0.5 x40 0.3 x80 0.2 l x200 0.1}}
   }
-set N9115f880 [stack 0]
+set N329c700 [stack 0]
   Merge2 {
    inputs 2
    operation minus
@@ -872,7 +873,7 @@ set N9115f880 [stack 0]
    xpos 332
    ypos 218
   }
-push $N9115f880
+push $N329c700
   Switch {
    inputs 2
    which {{"\[value parent.chew]>=0?0:1"}}
@@ -891,7 +892,7 @@ push $N9115f880
    xpos 177
    ypos 446
   }
-push $Nda61ee00
+push $N329dc00
   ShuffleCopy {
    inputs 2
    name ShuffleCopy1
@@ -910,10 +911,10 @@ push $Nda61ee00
    ypos 556
   }
  end_group
-push $Nda61f180
+push $N326a000
  Dissolve {
   inputs 2
-  which 1
+  which {{Dissolve1.which}}
   name Dissolve7
   tile_color 0x555555ff
   xpos -920
@@ -938,7 +939,7 @@ push $Nda61f180
   name ChannelMerge5
   tile_color 0x666666ff
   xpos -1030
-  ypos 986
+  ypos 985
  }
  Dot {
   name Dot22
@@ -964,7 +965,7 @@ push $Nda61f180
   xpos -116
   ypos 1434
  }
-push $Ndcfd2700
+push $N3133500
  Dot {
   name Dot1
   xpos 874
@@ -1004,7 +1005,7 @@ push $Ndcfd2700
   addUserKnob {7 out l Size R 0 100}
   out 10
  }
-push $N8a22a000
+push $N3102e00
  Blur {
   channels alpha
   size 5
